@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<div class="card auth"><h1>👨‍🎓 Student Login</h1><form method="post"><input name="username" placeholder="Username" required><input name="password" type="password" placeholder="Password" required><button>Login</button></form><p><a href="{{url_for('register')}}">Register</a></p></div>{% endblock %}

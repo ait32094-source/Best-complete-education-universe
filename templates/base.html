@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Study Notes Portal</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+
+<nav>
+    <b>📚 Study Notes Portal</b>
+
+    <span>
+        {% if session.get('student') %}
+
+            <a href="{{url_for('dashboard')}}">Dashboard</a>
+            <a href="{{url_for('logout')}}">Logout</a>
+
+        {% elif session.get('admin') %}
+
+            <a href="{{url_for('admin_dashboard')}}">Admin</a>
+            <a href="{{url_for('structure')}}">Structure</a>
+            <a href="{{url_for('admin_logout')}}">Logout</a>
+
+        {% else %}
+
+            <a href="{{url_for('login')}}">Student Login</a>
+            <a href="{{url_for('register')}}">Register</a>
+            <a href="{{url_for('admin_login')}}">Admin</a>
+
+        {% endif %}
+    </span>
+</nav>
+
+<main>
+
+    {% for m in get_flashed_messages() %}
+        <div class="flash">{{m}}</div>
+    {% endfor %}
+
+    {% block content %}{% endblock %}
+
+</main>
+
+</body>
+</html>

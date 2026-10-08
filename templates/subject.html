@@ -1,0 +1,1 @@
+{% extends "base.html" %}{% block content %}<h1>📚 {{subject.name}}</h1><div class="grid">{% for c in chapters %}<a class="card tile" href="{{url_for('chapter',cid=c.id)}}">📂 <h3>{{c.name}}</h3></a>{% else %}<div class="card">No chapters.</div>{% endfor %}</div>{% endblock %}
