@@ -329,6 +329,10 @@ def init_db():
     c.close()
 
 
+# Initialize database when imported by Gunicorn on Render.
+# Safe to run repeatedly because the schema uses CREATE TABLE IF NOT EXISTS.
+init_db()
+
 # ============================================================
 # GOOGLE DRIVE OAUTH
 # ============================================================
